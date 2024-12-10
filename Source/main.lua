@@ -4,6 +4,7 @@ function love.load()
   love.window.setMode(1920, 1080)
 
   backgroundEffect = moonshine(moonshine.effects.boxsterize)
+  .chain(moonshine.effects.pixelate)
   backgroundEffect.boxsterize.num_bands = 90
 
   scanlinesEffect = moonshine(moonshine.effects.scanlines)
@@ -27,7 +28,7 @@ end
 
 function love.update(dt)
   time = love.timer.getTime()
-  backgroundEffect.boxsterize.radius = {(math.abs(math.sin(time*.1)*math.sin(time*.1)*700))+.1,1}
+  backgroundEffect.boxsterize.radius = {(math.abs(math.sin(time*.1)*math.sin(time*.2)*700))+1,1}
 
   scanlinesEffect.scanlines.phase = time*10
 
